@@ -59,19 +59,13 @@
             <div class="job__content--list">
               <div class="tab__content">
                 <span class="tab__content--cell">
-                  <span class="tab__content--cell--text tab__content--urgent_recruit">
-                    急募
-                  </span>
+                  <span class="tab__content--cell--text tab__content--urgent_recruit">急募</span>
                 </span>
                 <span class="tab__content--cell">
-                  <span class="tab__content--cell--text tab__content--facility">
-                    認可
-                  </span>
+                  <span class="tab__content--cell--text tab__content--facility">認可</span>
                 </span>
                 <span class="tab__content--cell">
-                  <span class="tab__content--cell--text tab__content--employment">
-                    パート
-                  </span>
+                  <span class="tab__content--cell--text tab__content--employment">パート</span>
                 </span>
               </div>
               <a href="detail.php">
@@ -148,23 +142,17 @@
           </form>
 
           <!--test-->
-          <form action="form.php" method="post" class="job__content--form">
+          <form action="form.php" method="post">
             <div class="job__content--list">
               <div class="tab__content">
                 <span class="tab__content--cell">
-                  <span class="tab__content--cell--text tab__content--urgent_recruit">
-                    急募
-                  </span>
+                  <span class="tab__content--cell--text tab__content--urgent_recruit">急募</span>
                 </span>
                 <span class="tab__content--cell">
-                  <span class="tab__content--cell--text tab__content--facility">
-                    認可
-                  </span>
+                  <span class="tab__content--cell--text tab__content--facility">認可</span>
                 </span>
                 <span class="tab__content--cell">
-                  <span class="tab__content--cell--text tab__content--employment">
-                    パート
-                  </span>
+                  <span class="tab__content--cell--text tab__content--employment">パート</span>
                 </span>
               </div>
               <a href="detail.php">
@@ -312,9 +300,11 @@
                     <input id="regular_employee" type="checkbox">
                     <span class="job__content--checkbox--text">正社員</span>
                   </label>
-                  <label for="local_limitations">
-                    <input id="local_limitations" type="checkbox">
-                    <span class="job__content--checkbox--text">正社員(地域限定)</span>
+                  <label for="local_limitations" class="job__content--second">
+                    <div>
+                      <input id="local_limitations" type="checkbox">
+                      <span class="job__content--checkbox--text">正社員(地域限定)</span>
+                    </div>
                     <div class="tooltip">
                       <img src="./assets/img/tooltip.png" class="tooltip__content">
                       <img src="./assets/img/tooltip_hover.png" class="tooltip__content--hover">

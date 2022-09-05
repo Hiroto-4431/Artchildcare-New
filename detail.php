@@ -51,19 +51,13 @@
 
           <div class="tab__content">
             <span class="tab__content--cell">
-              <span class="tab__content--cell--text tab__content--urgent_recruit">
-                急募
-              </span>
+              <span class="tab__content--cell--text tab__content--urgent_recruit">急募</span>
             </span>
             <span class="tab__content--cell">
-              <span class="tab__content--cell--text tab__content--facility">
-                認可
-              </span>
+              <span class="tab__content--cell--text tab__content--facility">認可</span>
             </span>
             <span class="tab__content--cell">
-              <span class="tab__content--cell--text tab__content--employment">
-                パート
-              </span>
+              <span class="tab__content--cell--text tab__content--employment">パート</span>
             </span>
           </div>
           <p class="detail__content--job--title" name="name">
