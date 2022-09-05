@@ -1,0 +1,57 @@
+/*********************************/
+/*            common             */
+/*********************************/
+@mixin middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/*********************************/
+/*             color             */
+/*********************************/
+$black: #000000;
+$gray: #333333;
+$water: #96BFED;
+$blue: #4078BC;
+$deep-red: #9F1A1A;
+$light-red: #DE4E4E;
+$off-white: #F7F7F7;
+$white: #FFFFFF;
+$pink: #EB6E8F;
+
+/*********************************/
+/*          font-family          */
+/*********************************/
+$Noto: 'Noto Sans JP', sans-serif;
+$Roboto: 'Roboto', sans-serif;
+
+/*********************************/
+/*         font-weight           */
+/*********************************/
+$regular: 300;
+$medium: 500;
+$bold: 700;
+
+/*********************************/
+/*             text              */
+/*********************************/
+@mixin text(
+  $font-size: 1.5rem,
+  $color: $black,
+  $font-family: $Noto,
+  $font-weight: $medium,
+  $letter-spacing: 0.1em
+) {
+  font-size: $font-size;
+  color: $color;
+  font-family: $font-family;
+  font-weight: $font-weight;
+  letter-spacing: $letter-spacing;
+}

@@ -1,0 +1,2751 @@
+@use "reset";
+@use "common";
+@use "mixin";
+
+/*********************************/
+/*            PC Base            */
+/*********************************/
+
+/* ▼ 共通パーツ ▼ */
+html {
+  position: relative;
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
+}
+
+body {
+  // min-height: 100vh;
+  // min-height: calc(var(--vh, 1vh) * 100);
+}
+
+main {
+  max-width: 100rem;
+  margin: 0 auto;
+
+  // margin: 0 10%;
+  @include common.lg {
+    max-width: 90rem;
+  }
+
+  @include common.md {
+    max-width: 45rem;
+  }
+
+  @include common.sp {
+    max-width: 33.5rem;
+  }
+}
+
+// タイトル
+.section-title {
+  margin-top: 7rem;
+
+  @include common.md {
+    margin-top: 6.3rem;
+  }
+
+  // margin-bottom: 45rem;
+  .common-title {
+    font-family: mixin.$Noto;
+    color: mixin.$gray;
+    font-size: 2.8rem;
+    font-weight: mixin.$bold;
+    line-height: 1.21;
+    letter-spacing: 0.1em;
+    margin-bottom: 3.5rem;
+
+    @include common.sp {
+      font-size: 2.2rem;
+      line-height: 1.18;
+      margin-bottom: 2.3rem;
+    }
+  }
+
+  .common-text {
+    font-family: mixin.$Noto;
+    color: mixin.$gray;
+    font-size: 1.6rem;
+    font-weight: mixin.$regular;
+    line-height: 2;
+    letter-spacing: 0.06em;
+
+    @include common.sp {
+      font-size: 1.4rem;
+      line-height: 1.71;
+    }
+  }
+
+  &__logo {
+    width: 2rem;
+    height: auto;
+  }
+}
+
+// トピックパス
+.topic-path {
+  margin-top: 10.6rem;
+
+  @include common.md {
+    margin-top: 7.2rem;
+  }
+
+  ul {
+    display: flex;
+    text-align: center;
+    width: 68.9rem;
+    justify-content: space-between;
+    margin: 0 auto;
+
+    @include common.md {
+      width: 32.8rem;
+    }
+
+    li {
+      width: 7.5rem;
+      position: relative;
+
+      @include common.md {
+        width: 6.2rem;
+      }
+
+      &:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        width: 10rem;
+        height: 0.2rem;
+        background-color: mixin.$off-white;
+        top: 2rem;
+        left: 6.4rem;
+
+        @include common.md {
+          width: 3rem;
+          top: 1.5rem;
+          left: 4.9rem;
+        }
+      }
+
+      .topic-path__num {
+        font-family: mixin.$Roboto;
+        color: mixin.$gray;
+        font-size: 1.8rem;
+        font-weight: mixin.$bold;
+        line-height: 3.6rem;
+        margin: 0 auto 2rem;
+        width: 3.6rem;
+        height: 3.6rem;
+        border-radius: 50%;
+        background-color: mixin.$off-white;
+        border: 0.2rem solid mixin.$off-white;
+
+        @include common.md {
+          font-size: 1.4rem;
+          line-height: 2.8rem;
+          margin: 0 auto 1rem;
+          width: 2.8rem;
+          height: 2.8rem;
+        }
+      }
+
+      .topic-path__text {
+        font-family: mixin.$Noto;
+        color: #6c6c6c;
+        font-size: 1.4rem;
+        font-weight: mixin.$medium;
+        line-height: 1.21;
+        letter-spacing: 0.06em;
+
+        @include common.md {
+          font-size: 1.2rem;
+          line-height: 1.17;
+        }
+      }
+
+      .current-position__num {
+        color: mixin.$white;
+        background-color: #eb6e8f;
+        border: 0.2rem solid #eb6e8f;
+      }
+
+      .current-position__text {
+        color: #eb6e8f;
+      }
+
+      .before-position__num {
+        color: #eb6e8f;
+        background-color: mixin.$white;
+        border: 0.2rem solid #eb6e8f;
+      }
+
+      .before-position__text {
+        color: #eb6e8f;
+      }
+    }
+
+    .before-position__path {
+      &::after {
+        background-color: #eb6e8f !important;
+      }
+    }
+  }
+}
+
+// 共通ボタン
+.common__btn {
+  width: 26rem;
+  height: 6rem;
+  border-radius: 3rem;
+  background-color: #d1524d;
+  position: relative;
+
+  &:hover {
+    background-color: #9f1a1a;
+  }
+
+  .btn__inner--wrap {
+    display: flex;
+    align-items: center;
+    font-family: mixin.$Noto;
+    color: mixin.$white;
+    font-size: 1.6rem;
+    font-weight: mixin.$medium;
+    line-height: 1.19;
+    letter-spacing: 0.06em;
+
+    .btn__text {
+      line-height: 6rem;
+      margin: 0 auto;
+    }
+
+    i {
+      position: absolute;
+      right: 3rem;
+    }
+  }
+}
+
+.common__btn--width {
+  width: 23rem;
+
+  @include common.lg {
+    width: 21rem;
+  }
+}
+
+// タブ
+.tab__content {
+  // margin-top: 4.7rem;
+
+  &--cell {
+    margin-right: 0.5rem;
+
+    &--text {
+      border-radius: 1.5rem;
+      font-family: mixin.$Noto;
+      font-size: 1.3rem;
+      font-weight: mixin.$medium;
+      line-height: 1.21;
+      letter-spacing: 0.06em;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  // 急募
+  &--urgent_recruit {
+    background-color: #db5651;
+    border: 0.1rem solid #db5651;
+    color: #ffffff;
+  }
+
+  // 新募
+  &--new-recruit {
+    background-color: #ea6d8d;
+    border: 0.1rem solid #ea6d8d;
+    color: #ffffff;
+  }
+
+  // 認可,認証,事業所内,発達支援,デーサービス
+  &--facility {
+    background-color: #a5a5a5;
+    border: 0.1rem solid #a5a5a5;
+    color: #ffffff;
+  }
+
+  // 正社員,地域限定社員,契約社員,パート
+  &--employment {
+    background-color: #ffffff;
+    border: 0.1rem solid #a5a5a5;
+    color: #a5a5a5;
+  }
+}
+
+.side-tab__content {
+  margin: 3rem 1.5rem 2rem;
+
+  @include common.lg {
+    margin: 3rem 1rem 2rem;
+  }
+
+  &--cell--text {
+    padding: 0 1rem;
+  }
+}
+
+// モーダル & スライダー
+.modal {
+  display: none;
+
+  @include common.md {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0;
+    background-color: rgba(20, 20, 20, 0.92);
+  }
+
+  &__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+
+  &__content {
+    position: relative;
+    width: 100%;
+  }
+
+  &__close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 7rem;
+    height: 7rem;
+    cursor: pointer;
+    z-index: 600;
+
+    .close__mark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: mixin.$white;
+      font-size: 3rem;
+    }
+  }
+
+  &__trigger {
+    @include common.md {
+      cursor: pointer;
+    }
+  }
+
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: white;
+  }
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  --swiper-navigation-size: 2rem;
+}
+
+// ツールチップ
+.tooltip {
+  width: 1.6rem;
+  height: auto;
+  margin-left: 0.6rem;
+  position: absolute;
+  right: 6rem;
+  top: 50%;
+  transform: translateY(-50%);
+
+  @include common.md {
+    right: 27rem;
+  }
+
+  @include common.sp {
+    right: 16rem;
+  }
+
+  &:hover .tooltip__text {
+    display: block;
+  }
+
+  &__content {
+    &--hover {
+      display: none;
+    }
+  }
+
+  &:hover .tooltip__content--hover {
+    display: block;
+  }
+
+  &:hover .tooltip__content {
+    display: none;
+  }
+
+  &__text {
+    display: none;
+    width: 13.4rem;
+    height: 4.6rem;
+    background-color: mixin.$gray;
+    border-radius: 0.4rem;
+    position: absolute;
+    top: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &:before {
+      content: "";
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 0.7rem 0.9rem 0.7rem;
+      border-color: transparent transparent mixin.$gray transparent;
+      position: absolute;
+      top: -0.4rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    p {
+      font-family: mixin.$Noto;
+      color: mixin.$white;
+      font-size: 1.1rem;
+      font-weight: mixin.$medium;
+      line-height: 1.36;
+      letter-spacing: 0.06em;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+    }
+  }
+}
+
+// ページインフォ
+.page__info {
+  height: 3rem;
+  background-image: linear-gradient(
+    to right,
+    #e8e8e8,
+    #e8e8e8 0.4rem,
+    transparent 0.4rem,
+    transparent 0.6rem
+  );
+  background-size: 0.6rem 0.2rem;
+  background-position: left bottom;
+  background-repeat: repeat-x;
+
+  position: relative;
+  justify-content: space-between;
+  width: 100%;
+  @include common.md {
+    height: 8.5rem;
+  }
+
+  .page__place {
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    left: 0;
+
+    @include common.md {
+      display: block;
+      top: auto;
+      bottom: 0;
+      transform: translateY(0);
+    }
+  }
+
+  .pagination {
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+    right: 0;
+
+    @include common.md {
+      display: block;
+      top: 0;
+      width: 33.6rem;
+      height: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &__wrap {
+      position: absolute;
+      display: flex;
+      top: 50%;
+      transform: translateY(-50%);
+      right: 0;
+      justify-content: center;
+
+      @include common.md {
+        width: 100%;
+        height: 100%;
+      }
+
+      li {
+        white-space: nowrap;
+        font-family: mixin.$Roboto;
+        color: #a5a5a5;
+        font-size: 1.6rem;
+        font-weight: mixin.$regular;
+        line-height: 1.5;
+        letter-spacing: 0.06em;
+      }
+
+      .all_back {
+        a {
+          color: #e8e8e8;
+
+          &:hover {
+            opacity: 0.6;
+          }
+        }
+      }
+
+      .next_back {
+        margin: 0 3rem;
+
+        @include common.md {
+          margin: 0 2.5rem 0 2rem;
+        }
+
+        a {
+          color: #a5a5a5;
+
+          &:hover {
+            opacity: 0.6;
+          }
+        }
+      }
+
+      .number_page {
+        margin: 0 0.8rem;
+
+        @include common.md {
+          // margin: 0 3rem;
+        }
+
+        a {
+          color: #a5a5a5;
+
+          &:hover {
+            opacity: 0.6;
+          }
+        }
+      }
+
+      .next_jump {
+        margin: 0 3rem;
+
+        @include common.md {
+          margin: 0 2rem 0 2.5rem;
+        }
+
+        a {
+          color: #a5a5a5;
+
+          &:hover {
+            opacity: 0.6;
+          }
+        }
+      }
+
+      .all_jump {
+        a {
+          color: #e8e8e8;
+
+          &:hover {
+            opacity: 0.6;
+          }
+        }
+      }
+
+      .current_page {
+        a {
+          color: #d1524d;
+
+          &:hover {
+            color: #9f1a1a;
+            opacity: 1;
+          }
+        }
+      }
+
+      .four_page {
+        @include common.md {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+// 前へ戻る
+.content-back {
+  margin-top: 3.4rem;
+  padding-bottom: 15.85rem;
+
+  @include common.md {
+    margin-top: 4.4rem;
+    padding-bottom: 12.4rem;
+  }
+
+  a {
+    font-family: mixin.$Noto;
+    color: #6c6c6c;
+    font-size: 1.4rem;
+    font-weight: mixin.$medium;
+    line-height: 1.71;
+    letter-spacing: 0.06em;
+    text-decoration: underline;
+
+    &:hover {
+      opacity: 0.6;
+    }
+
+    i {
+      margin-right: 1rem;
+    }
+  }
+}
+
+/* ▲ 共通パーツ ▲ */
+
+/* 個別パーツ */
+.header {
+  width: 100%;
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 0 0.6rem 0 rgba(175, 175, 175, 0.16);
+  background-color: mixin.$white;
+  position: fixed;
+  top: 0;
+  z-index: 1200;
+
+  @include common.md {
+    height: 3.2rem;
+  }
+
+  &__logo {
+    height: 3rem;
+    margin-left: 3rem;
+
+    @include common.md {
+      height: 2rem;
+      margin-left: 2rem;
+    }
+
+    @include common.sp {
+      display: flex;
+      align-items: center;
+      height: auto;
+      max-width: 90%;
+      max-height: 2rem;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+
+      &:nth-of-type(1) {
+        @include common.md {
+          display: none;
+        }
+      }
+
+      &:nth-of-type(2) {
+        display: none;
+
+        @include common.md {
+          display: block;
+        }
+      }
+
+      @include common.sp {
+        max-height: 2rem;
+      }
+    }
+
+    a {
+      @include common.sp {
+        height: auto;
+        max-width: 90%;
+        max-height: 2rem;
+      }
+
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
+}
+
+#index {
+  // 「条件検索」ページ
+  .condition {
+    &__content {
+      &--headline {
+        margin-top: 6.3rem;
+      }
+
+      &--form-wrapper {
+        width: 100rem;
+
+        @include common.lg {
+          width: 90rem;
+        }
+
+        @include common.md {
+          width: 45rem;
+        }
+
+        @include common.sp {
+          width: 33.5rem;
+        }
+      }
+
+      &--table {
+        width: 100rem;
+
+        @include common.lg {
+          width: 90rem;
+        }
+
+        @include common.md {
+          width: 45rem;
+        }
+
+        @include common.sp {
+          width: 33.5rem;
+        }
+      }
+
+      &--cell {
+        width: 100rem;
+        border-bottom: 0.1rem solid #efefef;
+
+        @include common.lg {
+          width: 90rem;
+        }
+
+        @include common.md {
+          width: 45rem;
+          // display: block;
+        }
+
+        @include common.sp {
+          width: 33.5rem;
+        }
+
+        &:first-of-type {
+          border-top: 0.1rem solid #efefef;
+        }
+
+        &--title {
+          font-family: mixin.$Noto;
+          color: mixin.$gray;
+          font-size: 1.4rem;
+          font-weight: mixin.$medium;
+          line-height: 1.71;
+          letter-spacing: 0.06em;
+          text-align: left;
+          width: 26.5rem;
+          padding-left: 3rem;
+
+          @include common.md {
+            width: 100%;
+            padding-left: 0;
+            display: block;
+          }
+
+          label {
+            @include common.md {
+              display: block;
+              padding: 2.4rem 0 1.4rem;
+            }
+          }
+        }
+
+        &--text {
+          @include common.md {
+            display: block;
+          }
+
+          .select__wrap {
+            position: relative;
+            width: 33rem;
+            height: 4.4rem;
+            margin-top: 1.8rem;
+            margin-bottom: 1.8rem;
+
+            @include common.md {
+              width: 45rem;
+              margin: 0 0 2rem;
+            }
+
+            @include common.sp {
+              width: 33.5rem;
+            }
+
+            &::after {
+              content: "";
+              position: absolute;
+              width: 0.6rem;
+              height: 0.66rem;
+              right: 2rem;
+              top: 50%;
+              transform: translateY(-50%) rotate(45deg);
+              border-right: 0.2rem solid #a5a5a5;
+              border-bottom: 0.2rem solid #a5a5a5;
+              pointer-events: none;
+            }
+
+            select {
+              appearance: none;
+              border: 0.1rem solid #efefef;
+              background-color: #fdfdfd;
+              width: 100%;
+              height: 100%;
+              padding-left: 2rem;
+              padding-right: 2rem;
+
+              font-family: mixin.$Noto;
+              color: mixin.$gray;
+              font-size: 1.4rem;
+              font-weight: mixin.$regular;
+              line-height: 1.71;
+              letter-spacing: 0.06em;
+              border-radius: 0.2rem;
+            }
+          }
+
+          input[type="text"] {
+            border: 0.1rem solid #efefef;
+            background-color: #f5f5f5;
+            width: 68rem;
+            height: 4.4rem;
+            box-sizing: border-box;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            margin-top: 1.8rem;
+            margin-bottom: 1.8rem;
+            border-radius: 0.2rem;
+
+            font-family: mixin.$Noto;
+            color: mixin.$gray;
+            font-size: 1.4rem;
+            font-weight: mixin.$regular;
+            line-height: 1.71;
+            letter-spacing: 0.06em;
+
+            @include common.md {
+              width: 45rem;
+              margin: 0 0 2rem;
+            }
+
+            @include common.sp {
+              width: 33.5rem;
+            }
+          }
+
+          input[type="checkbox"] {
+            display: none;
+
+            &:checked + .condition__content--checkbox--text::after {
+              content: "";
+              display: block;
+              position: absolute;
+              top: 0.6rem;
+              left: 0.55rem;
+              width: 0.4rem;
+              height: 0.8rem;
+              transform: rotate(40deg);
+              border-bottom: 0.2rem solid #d1524d;
+              border-right: 0.2rem solid #d1524d;
+            }
+          }
+
+          .condition__content--checkbox--text {
+            font-family: mixin.$Noto;
+            color: mixin.$gray;
+            font-size: 1.4rem;
+            font-weight: mixin.$regular;
+            line-height: 1.71;
+            letter-spacing: 0.06em;
+            position: relative;
+            padding-left: 2.5rem;
+            display: block;
+            width: 18rem;
+
+            @include common.md {
+              width: auto;
+            }
+
+            &::before {
+              content: "";
+              display: block;
+              position: absolute;
+              top: 0.4rem;
+              left: 0;
+              width: 1.5rem;
+              height: 1.5rem;
+              border: 0.1rem solid #e8e8e8;
+              border-radius: 0.2rem;
+              background-color: mixin.$off-white;
+            }
+          }
+        }
+
+        .checkbox__wrap {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 3rem 0 1.8rem;
+
+          @include common.md {
+            display: block;
+            flex-wrap: nowrap;
+            margin: 0 0 2rem;
+          }
+
+          label {
+            display: flex;
+            align-items: baseline;
+            cursor: pointer;
+            width: 33.3%;
+            margin-bottom: 1.2rem;
+            position: relative;
+
+            @include common.md {
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      &--btn {
+        margin: 0 auto;
+        margin-top: 3rem;
+        margin-bottom: 16.6rem;
+        border: none;
+        display: block;
+        cursor: pointer;
+
+        @include common.md {
+          margin-top: 2rem;
+          margin-bottom: 16.2rem;
+        }
+      }
+    }
+  }
+
+  // 「求人表示」ページ
+  .job {
+    &__back {
+      display: none;
+      position: absolute;
+      width: 200vh;
+      height: 7rem;
+      left: -50vh;
+      top: 3.2rem;
+      position: fixed;
+      z-index: 200;
+      background: #fff;
+      border-bottom: 0.1rem solid #efefef;
+    }
+
+    &__content {
+      position: relative;
+
+      &--headline {
+        margin-bottom: 6.3rem;
+
+        @include common.md {
+          margin-bottom: 2.3rem;
+        }
+
+        &--under {
+          position: absolute;
+        }
+      }
+
+      &--information {
+        display: flex;
+        justify-content: space-between;
+
+        &--active {
+          @include common.md {
+            margin-top: 164.5rem;
+          }
+        }
+
+        @include common.md {
+          display: column;
+          flex-direction: column-reverse;
+        }
+      }
+
+      &--recruit {
+        width: 71rem;
+
+        @include common.lg {
+          width: 61rem;
+        }
+
+        @include common.md {
+          width: 45rem;
+          // padding-bottom: 6.6rem;
+          margin-top: 5rem;
+        }
+
+        @include common.sp {
+          width: 33.5rem;
+        }
+
+        // 点線
+        &--under {
+          position: relative;
+        }
+
+        .job__content--form {
+          .job__content--btn {
+            padding-bottom: 11rem;
+          }
+        }
+      }
+
+      &--form {
+        display: block;
+
+        .job__content--list {
+          .page__info {
+            &:last-of-type {
+              display: flex;
+            }
+          }
+        }
+      }
+
+      &--list {
+        background-image: linear-gradient(
+          to right,
+          #e8e8e8,
+          #e8e8e8 0.4rem,
+          transparent 0.4rem,
+          transparent 0.6rem
+        );
+        background-size: 0.6rem 0.2rem;
+        background-position: left top;
+        background-repeat: repeat-x;
+        position: relative;
+        padding-top: 4rem;
+
+        @include common.md {
+          padding-bottom: 6rem;
+        }
+
+        td {
+          a {
+            color: #4078bc;
+            display: block;
+            padding: 1.5rem 0;
+          }
+        }
+      }
+
+      &--table {
+        tr {
+          border: 0.1rem solid #efefef;
+
+          @include common.md {
+            width: 45rem;
+            display: block;
+            margin-bottom: -0.1rem;
+          }
+
+          @include common.sp {
+            width: 33.5rem;
+          }
+
+          th {
+            width: 12rem;
+            background-color: mixin.$off-white;
+            border: 0.1rem solid #efefef;
+            text-align: left;
+            padding-left: 2rem;
+
+            @include common.lg {
+              padding-left: 1rem;
+              width: 10rem;
+            }
+
+            @include common.md {
+              width: 45rem;
+              padding: 0;
+              display: block;
+              border: 0;
+              border-bottom: 0.1rem solid #efefef;
+            }
+
+            @include common.sp {
+              width: 33.5rem;
+            }
+
+            p {
+              font-family: mixin.$Noto;
+              color: mixin.$gray;
+              font-size: 1.4rem;
+              font-weight: mixin.$medium;
+              line-height: 1.71;
+              letter-spacing: 0.06em;
+              text-align: left;
+
+              @include common.md {
+                line-height: 4.4rem;
+                text-align: center;
+              }
+            }
+          }
+
+          td {
+            width: 59rem;
+            border: 0.1rem solid #efefef;
+            font-family: mixin.$Noto;
+            color: mixin.$gray;
+            font-size: 1.4rem;
+            font-weight: mixin.$regular;
+            line-height: 1.71;
+            letter-spacing: 0.06em;
+            padding: 1.5rem 2rem 2.1rem 2rem;
+
+            @include common.lg {
+              width: 54rem;
+            }
+
+            @include common.md {
+              width: 45rem;
+              border: 0;
+            }
+
+            @include common.sp {
+              width: 33.5rem;
+            }
+
+            iframe {
+              width: 55rem;
+              height: 20rem;
+
+              @include common.lg {
+                width: 50rem;
+              }
+
+              @include common.md {
+                width: 41rem;
+                height: 16rem;
+              }
+
+              @include common.sp {
+                width: 29.5rem;
+              }
+            }
+          }
+        }
+      }
+
+      &--number {
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        position: absolute;
+        font-family: mixin.$Roboto;
+        color: #d1524d;
+        font-size: 1.8rem;
+        font-weight: mixin.$medium;
+        line-height: 1.33;
+        white-space: nowrap;
+        @include common.md {
+          top: auto;
+          transform: translateY(0);
+          bottom: 0;
+        }
+
+        &-top {
+          bottom: 0;
+          left: 0;
+          position: absolute;
+          font-family: mixin.$Roboto;
+          color: mixin.$light-red;
+          font-size: 1.8rem;
+          font-weight: mixin.$medium;
+          line-height: 1.33;
+          white-space: nowrap;
+        }
+
+        &--sub {
+          font-size: 1.4rem;
+          line-height: 1.71;
+          color: #a5a5a5;
+        }
+
+        &--line {
+          font-size: 1.6rem;
+          line-height: 1.5;
+          color: #a5a5a5;
+        }
+      }
+
+      &--btn {
+        display: flex;
+        justify-content: center;
+        margin-top: 3rem;
+        padding-bottom: 8rem;
+
+        @include common.md {
+          display: block;
+          padding-bottom: 0;
+        }
+
+        &--detail {
+          margin: 0 0.5rem;
+          background-color: mixin.$white;
+          border: 0.1rem solid #d1524d;
+
+          @include common.md {
+            margin: 0 auto 1rem;
+          }
+
+          &:hover {
+            background-color: mixin.$off-white;
+
+            & a {
+              color: #9f1a1a;
+            }
+          }
+
+          a {
+            display: flex;
+            align-items: center;
+            color: #d1524d;
+          }
+        }
+
+        &--web {
+          margin: 0 0.5rem;
+          width: 26rem;
+          height: 6rem;
+          position: relative;
+          z-index: 1;
+          isolation: isolate;
+          overflow: hidden;
+          border-radius: 3rem;
+
+          &:before,
+          &:after {
+            content: "";
+            width: 0.2rem;
+            height: 1rem;
+            display: inline-block;
+            border-radius: 2px;
+            background: #fff;
+            position: absolute;
+            right: 3rem;
+          }
+
+          &:before {
+            top: calc(50% - 0.8rem);
+            transform: rotate(-45deg);
+          }
+
+          &:after {
+            bottom: calc(50% - 0.8rem);
+            transform: rotate(45deg);
+          }
+
+          @include common.md {
+            margin: 0 auto;
+          }
+        }
+
+        &--inside {
+          cursor: pointer;
+          display: block;
+          width: 26rem;
+          height: 6rem;
+          background: #d1524d;
+          border: none;
+          border-radius: 3rem;
+          font-family: mixin.$Noto;
+          color: mixin.$white;
+          font-size: 1.6rem;
+          font-weight: mixin.$medium;
+          line-height: 1.1875;
+          letter-spacing: 0.06em;
+
+          &:hover {
+            background: #9f1a1a;
+          }
+        }
+      }
+
+      &--title {
+        font-family: mixin.$Noto;
+        color: mixin.$gray;
+        font-size: 2.4rem;
+        font-weight: mixin.$medium;
+        line-height: 1.67;
+        letter-spacing: 0.06em;
+        margin-top: 2rem;
+        margin-bottom: 3.1rem;
+
+        @include common.md {
+          font-size: 2rem;
+          line-height: 1.5;
+          margin-bottom: 2.9rem;
+        }
+
+        &:hover {
+          cursor: pointer;
+          color: #d1524d;
+        }
+      }
+
+      &--side {
+        width: 27rem;
+        position: sticky;
+        top: 4.3rem;
+        z-index: 500;
+
+        @include common.md {
+          width: 45rem;
+          margin-bottom: 2.8rem;
+        }
+
+        @include common.sp {
+          width: 33.5rem;
+        }
+
+        &--all {
+          background-color: mixin.$white;
+          border: 0.1rem solid #efefef;
+          border-radius: 1rem;
+          overflow: hidden;
+          position: sticky;
+          top: 8rem;
+          box-shadow: 0rem 0rem 1rem rgba(116, 116, 116, 0.1);
+
+          @include common.md {
+            border-radius: 0.2rem;
+          }
+
+          hr {
+            margin-top: 1.5rem;
+            margin-bottom: 0;
+            height: 0.1rem;
+            border: none;
+            background-color: #e8e8e8;
+          }
+
+          select {
+            width: 23rem;
+            height: 4rem;
+            display: block;
+            margin: 0 auto;
+            border: 0.1rem solid #e8e8e8;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+            border-radius: 0.2rem;
+            appearance: none;
+
+            font-family: mixin.$Noto;
+            color: mixin.$gray;
+            font-size: 1.4rem;
+            font-weight: mixin.$regular;
+            line-height: 1.71;
+            letter-spacing: 0.06em;
+
+            @include common.lg {
+              width: 21rem;
+            }
+
+            @include common.md {
+              width: 40rem;
+            }
+
+            @include common.sp {
+              width: 29.5rem;
+            }
+          }
+
+          label {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.3rem;
+            position: relative;
+
+            input {
+              display: none;
+
+              &:checked + .job__content--checkbox--text::after {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0.2rem;
+                left: 0.55rem;
+                width: 0.4rem;
+                height: 0.8rem;
+                transform: rotate(40deg);
+                border-bottom: 0.2rem solid #d1524d;
+                border-right: 0.2rem solid #d1524d;
+              }
+            }
+
+            .job__content--checkbox--text {
+              font-family: mixin.$Noto;
+              color: mixin.$gray;
+              font-size: 1.3rem;
+              font-weight: mixin.$regular;
+              line-height: 1.22;
+              letter-spacing: 0.06em;
+              position: relative;
+              padding-left: 2.5rem;
+
+              &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 1.5rem;
+                height: 1.5rem;
+                border: 0.1rem solid #e8e8e8;
+                border-radius: 0.2rem;
+                background-color: mixin.$off-white;
+              }
+            }
+          }
+
+          input {
+            width: 23rem;
+            height: 4rem;
+            display: block;
+            margin: 0 auto;
+            border: 0.1rem solid #e8e8e8;
+            border-radius: 0.2rem;
+            padding-left: 1.5rem;
+            box-sizing: border-box;
+            background: #f5f5f5;
+            font-family: mixin.$Noto;
+            color: mixin.$gray;
+            font-size: 1.3rem;
+            font-weight: mixin.$regular;
+            line-height: 1.85;
+            letter-spacing: 0.06em;
+
+            // @include common.lg {
+            //   width: 21rem;
+            // }
+
+            @include common.md {
+              width: 40rem;
+            }
+
+            @include common.sp {
+              width: 29.5rem;
+            }
+          }
+        }
+
+        &--headline {
+          font-family: mixin.$Noto;
+          color: mixin.$gray;
+          font-size: 1.3rem;
+          font-weight: mixin.$medium;
+          line-height: 1.22;
+          letter-spacing: 0.06em;
+          margin: 2rem auto 1.2rem 1.5rem;
+        }
+
+        &--checkbox {
+          margin-left: 1.5rem;
+        }
+
+        &--title {
+          display: block;
+          padding-top: 1.5rem;
+          padding-bottom: 1.3rem;
+          text-align: center;
+          font-family: mixin.$Noto;
+          color: mixin.$gray;
+          font-size: 1.4rem;
+          font-weight: mixin.$medium;
+          line-height: 1.21;
+          letter-spacing: 0.06em;
+          background-color: mixin.$off-white;
+          border-bottom: 0.1rem solid #efefef;
+
+          @media screen and (min-width: 960px) {
+            pointer-events: none;
+          }
+
+          @include common.md {
+            cursor: pointer;
+          }
+
+          &--line1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: mixin.$Noto;
+            color: mixin.$gray;
+            font-size: 1.4rem;
+            font-weight: mixin.$bold;
+            line-height: 1.1875;
+            letter-spacing: 0.06em;
+
+            @include common.md {
+              font-weight: mixin.$medium;
+            }
+
+            i {
+              margin-right: 0.8rem;
+            }
+          }
+        }
+
+        &--title-sp {
+          @include common.md {
+            display: flex;
+            justify-content: space-between;
+            padding-left: 1.5rem;
+            padding-right: 1.5rem;
+          }
+
+          &--mark {
+            display: none;
+
+            @include common.md {
+              font-size: 1.5rem;
+              color: #a5a5a5;
+              display: block;
+            }
+          }
+        }
+
+        &--btn {
+          margin: 1.5rem auto;
+          border: none;
+          display: block;
+          cursor: pointer;
+        }
+
+        &--cover {
+          position: absolute;
+          width: 100vw;
+          height: 8rem;
+          background: #000;
+          top: 0;
+          left: 0;
+        }
+
+        .select__wrap {
+          position: relative;
+          width: 33rem;
+          height: 4.4rem;
+          margin-top: 1.8rem;
+          margin-bottom: 1.8rem;
+
+          @include common.md {
+            width: 45rem;
+            margin: 0 0 2rem;
+          }
+
+          @include common.sp {
+            width: 33.5rem;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            width: 0.6rem;
+            height: 0.66rem;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+            border-right: 0.2rem solid #a5a5a5;
+            border-bottom: 0.2rem solid #a5a5a5;
+            pointer-events: none;
+          }
+
+          select {
+            appearance: none;
+            border: 0.1rem solid #efefef;
+            background-color: #fdfdfd;
+            width: 100%;
+            height: 100%;
+            padding-left: 2rem;
+            padding-right: 2rem;
+          }
+        }
+
+        .select__wrap--side {
+          position: relative;
+          width: 23rem;
+          height: 4rem;
+          margin: 1.8rem auto;
+
+          // @include common.lg {
+          //   width: 21rem;
+          // }
+
+          @include common.md {
+            width: 29.5rem;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            width: 0.6rem;
+            height: 0.66rem;
+            right: 2rem;
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+            border-right: 0.2rem solid #a5a5a5;
+            border-bottom: 0.2rem solid #a5a5a5;
+            pointer-events: none;
+          }
+
+          select {
+            appearance: none;
+            border: 0.1rem solid #efefef;
+            background-color: #fdfdfd;
+            width: 100%;
+            height: 100%;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            border-radius: 0.2rem;
+          }
+        }
+
+        &--back {
+          border: 0.1rem solid #000;
+          width: 200vh;
+          height: 8rem;
+          // position: absolute;
+          // top: 0;
+          // left: -50vh;
+        }
+
+        &--search {
+          overflow: auto;
+          height: 80vh;
+
+          @include common.md {
+            overflow: unset;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+
+  // 「詳細」ページ
+  .detail {
+    &__content {
+      // ヘッドライン
+      &--headline {
+        margin-bottom: 6.3rem;
+
+        @include common.md {
+          margin-bottom: 3rem;
+        }
+      }
+
+      &--title {
+        font-family: mixin.$Noto;
+        color: mixin.$gray;
+        font-size: 2.4rem;
+        font-weight: mixin.$medium;
+        line-height: 1.67;
+        letter-spacing: 0.06em;
+        margin-bottom: 4rem;
+
+        @include common.md {
+          font-size: 2rem;
+          line-height: 2;
+          margin-bottom: 1rem;
+        }
+
+        &--under {
+          padding-bottom: 3.5rem;
+          background-image: linear-gradient(
+            to right,
+            #e8e8e8,
+            #e8e8e8 0.4rem,
+            transparent 0.4rem,
+            transparent 0.6rem
+          );
+          background-size: 0.6rem 0.2rem;
+          background-position: left bottom;
+          background-repeat: repeat-x;
+        }
+      }
+
+      // 詳細情報
+      &--job {
+        &--title {
+          font-family: mixin.$Noto;
+          color: mixin.$gray;
+          font-size: 3.2rem;
+          font-weight: mixin.$medium;
+          line-height: 1.625;
+          letter-spacing: 0.06em;
+          margin-top: 1.5rem;
+
+          @include common.md {
+            font-size: 1.8rem;
+            line-height: 1.56;
+          }
+        }
+
+        &--img {
+          width: 100rem;
+          display: flex;
+          justify-content: space-between;
+          margin-top: 5.4rem;
+          margin-bottom: 3rem;
+
+          @include common.lg {
+            width: 90rem;
+          }
+
+          @include common.md {
+            width: 45rem;
+            margin-top: 2.8rem;
+          }
+
+          @include common.sp {
+            width: 33.5rem;
+          }
+
+          img {
+            width: 31.2rem;
+
+            @include common.lg {
+              width: 28.5rem;
+            }
+
+            @include common.md {
+              width: 14.5rem;
+              height: 14.5rem;
+            }
+
+            @include common.sp {
+              width: 11rem;
+              height: 11rem;
+            }
+          }
+        }
+
+        &--content {
+          width: 100rem;
+          display: flex;
+          justify-content: space-between;
+
+          @include common.lg {
+            width: 90rem;
+          }
+
+          @include common.md {
+            width: 45rem;
+          }
+
+          @include common.sp {
+            width: 33.5rem;
+          }
+        }
+
+        &--text {
+          width: 71rem;
+          font-family: mixin.$Noto;
+          color: mixin.$gray;
+          font-size: 1.4rem;
+          font-weight: mixin.$regular;
+          line-height: 1.71;
+          letter-spacing: 0.06em;
+          margin-bottom: 8.6rem;
+
+          @include common.lg {
+            width: 65rem;
+          }
+
+          @include common.md {
+            width: 45rem;
+            margin-bottom: 6.6rem;
+          }
+        }
+
+        &--wrap-btn {
+          width: 26rem;
+          height: 6rem;
+          position: relative;
+          z-index: 1;
+          isolation: isolate;
+          overflow: hidden;
+          border-radius: 3rem;
+
+          @include common.md {
+            display: none;
+          }
+
+          &:before,
+          &:after {
+            content: "";
+            width: 0.2rem;
+            height: 1rem;
+            display: inline-block;
+            border-radius: 2px;
+            background: #fff;
+            position: absolute;
+            right: 3rem;
+          }
+
+          &:before {
+            top: calc(50% - 0.8rem);
+            transform: rotate(-45deg);
+          }
+
+          &:after {
+            bottom: calc(50% - 0.8rem);
+            transform: rotate(45deg);
+          }
+        }
+
+        &--inside-btn {
+          cursor: pointer;
+          display: block;
+          width: 26rem;
+          height: 6rem;
+          background: #d1524d;
+          border: none;
+          border-radius: 3rem;
+          font-family: mixin.$Noto;
+          color: mixin.$white;
+          font-size: 1.6rem;
+          font-weight: mixin.$medium;
+          line-height: 1.1875;
+          letter-spacing: 0.06em;
+
+          @include common.md {
+            display: none;
+          }
+
+          &:hover {
+            background: #9f1a1a;
+          }
+        }
+      }
+
+      &--table {
+        tr {
+          border: 0.1rem solid #efefef;
+
+          @include common.md {
+            width: 45rem;
+            display: block;
+            margin-bottom: -0.1rem;
+          }
+
+          @include common.sp {
+            width: 33.5rem;
+          }
+
+          th {
+            width: 35rem;
+            background-color: mixin.$off-white;
+            border: 0.1rem solid #efefef;
+            text-align: left;
+            padding-left: 2rem;
+
+            @include common.lg {
+              padding-left: 1rem;
+              width: 20rem;
+            }
+
+            @include common.md {
+              width: 45rem;
+              padding: 0;
+              display: block;
+              border: 0;
+              border-bottom: 0.1rem solid #efefef;
+            }
+
+            @include common.sp {
+              width: 33.5rem;
+            }
+
+            p {
+              font-family: mixin.$Noto;
+              color: mixin.$gray;
+              font-size: 1.4rem;
+              font-weight: mixin.$medium;
+              line-height: 1.71;
+              letter-spacing: 0.06em;
+              text-align: left;
+
+              @include common.md {
+                line-height: 4.4rem;
+                text-align: center;
+              }
+            }
+          }
+
+          td {
+            width: 59rem;
+            border: 0.1rem solid #efefef;
+            font-family: mixin.$Noto;
+            color: mixin.$gray;
+            font-size: 1.4rem;
+            font-weight: mixin.$regular;
+            line-height: 1.71;
+            letter-spacing: 0.06em;
+            padding: 1.5rem 2rem 1.5rem 2rem;
+
+            @include common.lg {
+              width: 54rem;
+            }
+
+            @include common.md {
+              width: 45rem;
+              border: 0;
+            }
+
+            @include common.sp {
+              width: 33.5rem;
+            }
+
+            iframe {
+              width: 55rem;
+              height: 20rem;
+
+              @include common.lg {
+                width: 50rem;
+              }
+
+              @include common.md {
+                width: 41rem;
+                height: 16rem;
+              }
+
+              @include common.sp {
+                width: 29.5rem;
+              }
+            }
+          }
+        }
+
+        .employment,
+        .location,
+        .work__time,
+        .holiday,
+        .welfare,
+        .feature {
+          @include common.md {
+            display: none;
+          }
+        }
+
+        .place {
+          td {
+            span {
+              display: block;
+              margin-bottom: 2rem;
+
+              @include common.md {
+                margin-bottom: 2.5rem;
+              }
+            }
+          }
+        }
+      }
+
+      // 募集要項
+      &--list {
+        margin-bottom: 8rem;
+
+        @include common.md {
+          margin-bottom: 6rem;
+        }
+      }
+
+      // SP 園長から応募者へ
+      &--message {
+        display: none;
+
+        @include common.md {
+          display: block;
+        }
+
+        &--title {
+          font-family: mixin.$Noto;
+          color: mixin.$gray;
+          font-size: 2rem;
+          font-weight: mixin.$medium;
+          line-height: 2;
+          letter-spacing: 0.06em;
+          margin-bottom: 3rem;
+        }
+
+        &--content {
+          font-family: mixin.$Noto;
+          color: mixin.$gray;
+          font-size: 1.4rem;
+          font-weight: mixin.$regular;
+          line-height: 1.71;
+          letter-spacing: 0.06em;
+          margin-bottom: 1.6rem;
+        }
+
+        &--from {
+          font-family: mixin.$Noto;
+          color: #6c6c6c;
+          font-size: 1.3rem;
+          font-weight: mixin.$regular;
+          line-height: 1.71;
+          letter-spacing: 0.06em;
+          margin-bottom: 6.5rem;
+          text-align: right;
+          margin-right: 1.5em;
+        }
+      }
+
+      // サイドバー
+      &--side {
+        width: 26rem;
+
+        @include common.lg {
+          width: 23rem;
+        }
+
+        @include common.md {
+          display: none;
+        }
+
+        &--all {
+          background-color: mixin.$white;
+          border: 0.1rem solid #efefef;
+          position: sticky;
+          top: 8rem;
+          border-radius: 1rem;
+          box-shadow: 0 0 1rem rgba(116, 116, 116, 0.1);
+
+          hr {
+            border: none;
+            height: 0.1rem;
+            background-color: #e8e8e8;
+          }
+        }
+
+        &--title {
+          margin: 3.4rem auto 1.5rem;
+          text-align: center;
+          font-family: mixin.$Noto;
+          color: mixin.$gray;
+          font-size: 1.4rem;
+          font-weight: mixin.$medium;
+          line-height: 1.21;
+          letter-spacing: 0.06em;
+        }
+
+        &--text {
+          width: 23rem;
+          margin: 0 auto;
+          font-family: mixin.$Noto;
+          color: mixin.$gray;
+          font-size: 1.4rem;
+          font-weight: mixin.$regular;
+          line-height: 1.71;
+          letter-spacing: 0.06em;
+
+          @include common.lg {
+            width: 21rem;
+          }
+        }
+
+        &--from {
+          margin: 2.1rem auto 3.5rem;
+          font-family: mixin.$Noto;
+          color: #6c6c6c;
+          font-size: 1.4rem;
+          font-weight: mixin.$regular;
+          line-height: 1.71;
+          letter-spacing: 0.06em;
+          text-align: center;
+        }
+
+        &--wrap-btn {
+          width: 23rem;
+          height: 6rem;
+          display: block;
+          margin: 3rem auto;
+          position: relative;
+          z-index: 1;
+          isolation: isolate;
+          overflow: hidden;
+          border-radius: 3rem;
+
+          &:before,
+          &:after {
+            content: "";
+            width: 0.2rem;
+            height: 1rem;
+            display: inline-block;
+            border-radius: 2px;
+            background: #fff;
+            position: absolute;
+            right: 3rem;
+            z-index: 500;
+          }
+
+          &:before {
+            top: calc(50% - 0.8rem);
+            transform: rotate(-45deg);
+          }
+
+          &:after {
+            bottom: calc(50% - 0.8rem);
+            transform: rotate(45deg);
+          }
+        }
+
+        &--inside-btn {
+          display: block;
+          width: 23rem;
+          height: 6rem;
+
+          cursor: pointer;
+          background: #d1524d;
+          border: none;
+          border-radius: 3rem;
+          font-family: mixin.$Noto;
+          color: mixin.$white;
+          font-size: 1.6rem;
+          font-weight: mixin.$medium;
+          line-height: 1.1875;
+          letter-spacing: 0.06em;
+          position: absolute;
+
+          &:hover {
+            background: #9f1a1a;
+          }
+        }
+
+        &--job-title {
+          font-family: mixin.$Noto;
+          color: mixin.$gray;
+          font-size: 1.6rem;
+          font-weight: mixin.$medium;
+          line-height: 1.85;
+          letter-spacing: 0.06em;
+          margin: 0 1.5rem 1.8rem;
+        }
+      }
+
+      &--information {
+        display: flex;
+        justify-content: space-between;
+
+        @include common.md {
+          display: block;
+          justify-content: start;
+        }
+      }
+
+      &--recruit {
+        width: 71rem;
+        padding-bottom: 8.5rem;
+        background-image: linear-gradient(
+          to right,
+          #e8e8e8,
+          #e8e8e8 0.4rem,
+          transparent 0.4rem,
+          transparent 0.6rem
+        );
+        background-size: 0.6rem 0.2rem;
+        background-position: left bottom;
+        background-repeat: repeat-x;
+
+        @include common.lg {
+          width: 65rem;
+        }
+
+        @include common.md {
+          width: 45rem;
+          padding-bottom: 6rem;
+        }
+
+        @include common.sp {
+          width: 33.5rem;
+        }
+      }
+
+      // 採用フロー
+      &--flow {
+        &--all {
+          width: 71rem;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 2rem;
+
+          @include common.lg {
+            width: 65rem;
+          }
+
+          @include common.md {
+            width: 45rem;
+            display: block;
+          }
+
+          @include common.sp {
+            width: 33.5rem;
+          }
+        }
+
+        &--text {
+          font-family: mixin.$Noto;
+          color: mixin.$gray;
+          font-size: 1.4rem;
+          font-weight: mixin.$regular;
+          line-height: 1.71;
+          letter-spacing: 0.06em;
+        }
+
+        &--detail {
+          width: 13rem;
+          height: 13rem;
+          border-radius: 1rem;
+          background-color: mixin.$off-white;
+          position: relative;
+
+          @include common.lg {
+            width: 12rem;
+            height: 12rem;
+          }
+
+          @include common.md {
+            width: 100%;
+            height: 6rem;
+            margin-bottom: 2.5rem;
+          }
+
+          .flow__main {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            white-space: nowrap;
+            font-family: mixin.$Noto;
+            color: mixin.$gray;
+            font-size: 1.4rem;
+            font-weight: mixin.$medium;
+            line-height: 1.71;
+            letter-spacing: 0.06em;
+            text-align: center;
+
+            @include common.md {
+              line-height: 1.2;
+            }
+
+            span {
+              display: inline-block;
+              font-size: 1.2rem;
+              font-weight: mixin.$regular;
+              line-height: 1.33;
+            }
+          }
+
+          &:not(:last-of-type) {
+            &::after {
+              content: "";
+              width: 0;
+              height: 0;
+              border-style: solid;
+              border-width: 7.565px 0 7.565px 8.81px;
+              border-color: transparent transparent transparent #a5a5a5;
+              position: absolute;
+              top: 50%;
+              right: -1.3rem;
+              transform: translateY(-50%);
+
+              @include common.md {
+                width: 0;
+                height: 0;
+                border-style: solid;
+                border-width: 8.81px 7.565px 0 7.565px;
+                border-color: #a5a5a5 transparent transparent transparent;
+                left: 50%;
+                top: 110%;
+                transform: translate(-50%);
+              }
+            }
+          }
+        }
+      }
+
+      &--sp-wrap {
+        display: none;
+        width: 26rem;
+        height: 6rem;
+        position: relative;
+        margin: 6rem auto 0;
+        z-index: 1;
+        isolation: isolate;
+        overflow: hidden;
+        border-radius: 3rem;
+
+        @include common.md {
+          display: block;
+        }
+
+        &:before,
+        &:after {
+          content: "";
+          width: 0.2rem;
+          height: 1rem;
+          display: inline-block;
+          border-radius: 2px;
+          background: #fff;
+          position: absolute;
+          right: 3rem;
+          z-index: 500;
+        }
+
+        &:before {
+          top: calc(50% - 0.8rem);
+          transform: rotate(-45deg);
+        }
+
+        &:after {
+          bottom: calc(50% - 0.8rem);
+          transform: rotate(45deg);
+        }
+      }
+
+      // SPボタン
+      &--sp-btn {
+        cursor: pointer;
+        display: block;
+        width: 26rem;
+        height: 6rem;
+        background: #d1524d;
+        border: none;
+        border-radius: 3rem;
+
+        font-family: mixin.$Noto;
+        color: mixin.$white;
+        font-size: 1.6rem;
+        font-weight: mixin.$medium;
+        line-height: 1.1875;
+        letter-spacing: 0.06em;
+
+        position: absolute;
+
+        &:hover {
+          background: #9f1a1a;
+        }
+      }
+
+      &--scroll-wrap {
+        width: 26rem;
+        height: 6rem;
+        position: sticky;
+        bottom: 0.7rem;
+        margin: 0 auto;
+        z-index: 300;
+        isolation: isolate;
+        overflow: hidden;
+        border-radius: 3rem;
+        display: none;
+
+        &:before,
+        &:after {
+          content: "";
+          width: 0.2rem;
+          height: 1rem;
+          display: inline-block;
+          border-radius: 2px;
+          background: #fff;
+          position: absolute;
+          right: 3rem;
+          z-index: 500;
+        }
+
+        &:before {
+          top: calc(50% - 0.8rem);
+          transform: rotate(-45deg);
+        }
+
+        &:after {
+          bottom: calc(50% - 0.8rem);
+          transform: rotate(45deg);
+        }
+      }
+
+      &--scroll-btn {
+        margin: 0 auto;
+        position: sticky;
+        bottom: 0.7rem;
+        display: none;
+        z-index: 300;
+
+        cursor: pointer;
+        width: 26rem;
+        height: 6rem;
+        background: #d1524d;
+        border: none;
+        border-radius: 3rem;
+        font-family: mixin.$Noto;
+        color: mixin.$white;
+        font-size: 1.6rem;
+        font-weight: mixin.$medium;
+        line-height: 1.1875;
+        letter-spacing: 0.06em;
+
+        &:hover {
+          background: #9f1a1a;
+        }
+      }
+
+      &--scroll-back {
+        display: none;
+        width: 200vw;
+        height: 7.4rem;
+        border: 0.1rem solid #efefef;
+        position: fixed;
+        bottom: 0;
+        left: -50vw;
+        background: #fff;
+        z-index: 200;
+      }
+    }
+  }
+
+  // 「フォーム」ページ
+  .form {
+    &__content {
+      &--headline {
+        margin-top: 6.3rem;
+      }
+
+      &--form-wrapper {
+        margin-top: 4rem;
+
+        // テーブル
+        table {
+          margin-bottom: 3rem;
+
+          .form__content--cell {
+            display: flex;
+            align-items: center;
+            width: 100rem;
+            border-bottom: 0.1rem solid #efefef;
+            padding: 1.8rem 0;
+
+            @include common.lg {
+              width: 90rem;
+            }
+
+            @include common.md {
+              width: 45rem;
+              display: block;
+            }
+
+            @include common.sp {
+              width: 33.5rem;
+            }
+
+            &--title {
+              font-family: mixin.$Noto;
+              color: mixin.$gray;
+              font-size: 1.4rem;
+              font-weight: mixin.$medium;
+              line-height: 1.71;
+              letter-spacing: 0.06em;
+              text-align: left;
+              width: 18.5rem;
+              display: flex;
+              justify-content: space-between;
+              margin: 0 10rem 0 3rem;
+
+              @include common.md {
+                width: auto;
+                justify-content: unset;
+                margin: 0 0 1.5rem 0;
+                white-space: nowrap;
+              }
+
+              br {
+                @include common.md {
+                  display: none;
+                }
+              }
+            }
+
+            &--text {
+              .form__content--cell--job-name {
+                font-family: mixin.$Noto;
+                color: mixin.$gray;
+                font-size: 1.4rem;
+                font-weight: mixin.$medium;
+                line-height: 1.71;
+                letter-spacing: 0.06em;
+              }
+
+              input[type="text"],
+              textarea {
+                box-sizing: border-box;
+                border: 0.1rem solid #efefef;
+                background-color: mixin.$off-white;
+                width: 33rem;
+                height: 4.4rem;
+                padding: 1.4rem 0 1.4rem 2rem;
+                border-radius: 0.2rem;
+
+                font-family: mixin.$Noto;
+                color: mixin.$gray;
+                font-size: 1.4rem;
+                font-weight: mixin.$regular;
+                line-height: 1.71;
+                letter-spacing: 0.06em;
+
+                @include common.md {
+                  width: 45rem;
+                }
+
+                @include common.sp {
+                  width: 33.5rem;
+                }
+              }
+
+              select {
+                box-sizing: border-box;
+                border: 0.1rem solid #efefef;
+                width: 33rem;
+                height: 4.4rem;
+                padding: 0 0 0 2rem;
+
+                @include common.md {
+                  width: 45rem;
+                }
+
+                @include common.sp {
+                  width: 33.5rem;
+                }
+              }
+            }
+
+            &--required {
+              background-color: #d1524d;
+              font-family: mixin.$Noto;
+              font-size: 1.3rem;
+              color: mixin.$white;
+              line-height: 2rem;
+              text-align: center;
+              width: 4.4rem;
+              height: 2rem;
+              border-radius: 0.2rem;
+
+              @include common.md {
+                margin-left: 1.5rem;
+              }
+            }
+
+            &--postscript {
+              font-family: mixin.$Noto;
+              color: mixin.$gray;
+              font-size: 1.3rem;
+              font-weight: mixin.$regular;
+              line-height: 1.85;
+              letter-spacing: 0.06em;
+              margin-top: 0.5rem;
+
+              @include common.md {
+                font-size: 1.2rem;
+                line-height: 2;
+              }
+            }
+          }
+
+          .form__contact--age {
+            .form__content--cell--text {
+              font-family: mixin.$Roboto;
+              color: mixin.$gray;
+              font-size: 1.3rem;
+              font-weight: mixin.$medium;
+              line-height: 1.71;
+              letter-spacing: 0.06em;
+
+              input {
+                width: 5.6rem;
+                margin-right: 0.8rem;
+              }
+            }
+          }
+
+          .form__content--question {
+            align-items: flex-start;
+
+            .form__content--cell--title {
+              margin-top: 1.6rem;
+
+              @include common.md {
+                margin-top: 0;
+              }
+            }
+
+            textarea {
+              width: 65rem;
+              height: 16rem;
+
+              @include common.lg {
+                width: 48rem;
+              }
+
+              @include common.md {
+                width: 45rem;
+              }
+
+              @include common.sp {
+                width: 33.5rem;
+              }
+            }
+          }
+        }
+
+        // エントリーボタン
+        .form__content--submit {
+          button {
+            position: relative;
+            width: 26rem;
+            height: 6rem;
+            border: none;
+            background-color: #d1524d;
+            border-radius: 3rem;
+            display: block;
+            margin: 0 auto;
+            cursor: pointer;
+
+            &:hover {
+              background-color: #9f1a1a;
+            }
+
+            span {
+              font-family: mixin.$Noto;
+              color: mixin.$white;
+              font-size: 1.6rem;
+              font-weight: mixin.$medium;
+              line-height: 1.1875;
+              letter-spacing: 0.1em;
+              text-align: center;
+            }
+
+            i {
+              position: absolute;
+              top: 50%;
+              right: 3rem;
+              transform: translateY(-50%);
+              color: mixin.$white;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // 「完了」ページ
+  .complete {
+    &__content {
+      &--headline {
+        margin-bottom: 6.3rem;
+
+        @include common.md {
+          margin-bottom: 3.6rem;
+        }
+      }
+
+      &--document {
+        margin-bottom: 7rem;
+
+        @include common.md {
+          margin-bottom: 8rem;
+        }
+
+        &--content {
+          width: 80rem;
+          margin: 0 auto;
+
+          @include common.md {
+            width: 45rem;
+          }
+
+          @include common.sp {
+            width: 33.5rem;
+          }
+
+          #gfj_slideplayer_inline_frame {
+            box-shadow: rgb(0 0 0 / 10%) 0px 5px 40px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 4.6rem;
+  background-color: mixin.$gray;
+
+  @include common.md {
+    height: 4.2rem;
+  }
+
+  p {
+    font-family: mixin.$Roboto;
+    color: mixin.$white;
+    font-size: 1.3rem;
+    font-weight: mixin.$regular;
+    line-height: 1.85;
+    letter-spacing: 0.06em;
+
+    line-height: 4.6rem;
+    text-align: center;
+
+    @include common.md {
+      font-size: 1.2rem;
+      line-height: 4.2rem;
+    }
+  }
+}

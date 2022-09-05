@@ -1,0 +1,128 @@
+@use "mixin";
+
+/*********************************/
+/*             font              */
+/*********************************/
+html {
+  font-size: 10px;
+}
+
+body {
+  font-family: "游ゴシック体", YuGothic, "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", "Noto Sans JP", sans-serif;
+  overflow-x: hidden;
+}
+
+/*********************************/
+/*          responsive           */
+/*********************************/
+@mixin lg {
+  @media only screen and (max-width: 1060px) {
+    @content;
+  }
+}
+
+@mixin md {
+  @media only screen and (max-width: 960px) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media only screen and (max-width: 520px) {
+    @content;
+  }
+}
+
+/*********************************/
+/*            display            */
+/*********************************/
+.display-lg {
+  display: block;
+
+  @include md {
+    display: none;
+  }
+
+  @include sp {
+    display: none;
+  }
+}
+
+.display-md {
+  display: none;
+
+  @include md {
+    display: block;
+  }
+
+  @include sp {
+    display: block;
+  }
+}
+
+.display-sp {
+  display: none;
+
+  @include md {
+    display: none;
+  }
+
+  @include sp {
+    display: block;
+  }
+}
+
+/*********************************/
+/*              help             */
+/*********************************/
+.help-block {
+  display: block !important;
+}
+
+.help-md-block {
+  display: none;
+
+  @include md {
+    display: block;
+  }
+}
+
+.help-none {
+  display: none !important;
+}
+
+.help-lg-none {
+  display: block;
+
+  @include md {
+    display: none;
+  }
+}
+
+.help-md-none {
+  @include md {
+    display: none;
+  }
+}
+
+.help-fixed {
+  @include md {
+    position: fixed;
+  }
+}
+
+.help-relative {
+  position: relative !important;
+}
+
+.help-search-height {
+  margin-top: 4.5rem;
+}
+
+.help-search-margin {
+  margin-bottom: 11rem !important;
+}
+
+.help-static {
+  position: static !important;
+}
