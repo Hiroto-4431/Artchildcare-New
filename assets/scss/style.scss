@@ -229,6 +229,10 @@ main {
   @include common.lg {
     width: 21rem;
   }
+
+  @include common.md {
+    width: 90%;
+  }
 }
 
 // タブ
@@ -237,6 +241,9 @@ main {
 
   &--cell {
     margin-right: 0.5rem;
+    display: inline-block;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 
     &--text {
       border-radius: 1.5rem;
@@ -280,10 +287,10 @@ main {
 }
 
 .side-tab__content {
-  margin: 3rem 1.5rem 2rem;
+  margin: 2.5rem 1.5rem 1.5rem;
 
   @include common.lg {
-    margin: 3rem 1rem 2rem;
+    margin: 2.5rem 1rem 1.5rem;
   }
 
   &--cell--text {
@@ -367,11 +374,7 @@ main {
 .tooltip {
   width: 1.6rem;
   height: auto;
-  margin-left: 0.6rem;
-  position: absolute;
-  right: 6rem;
-  top: 50%;
-  transform: translateY(-50%);
+  margin-left: 1rem;
 
   @include common.md {
     right: 27rem;
@@ -441,6 +444,7 @@ main {
 
 // ページインフォ
 .page__info {
+  margin-top: 3rem;
   height: 3rem;
   background-image: linear-gradient(
     to right,
@@ -510,6 +514,7 @@ main {
         font-weight: mixin.$regular;
         line-height: 1.5;
         letter-spacing: 0.06em;
+        padding-bottom: 1rem;
       }
 
       .all_back {
@@ -581,6 +586,7 @@ main {
       }
 
       .current_page {
+        font-weight: mixin.$medium;
         a {
           color: #d1524d;
 
@@ -939,6 +945,21 @@ main {
             @include common.md {
               width: 100%;
             }
+
+            .tooltip {
+              position: absolute;
+              right: 7rem;
+              top: 50%;
+              transform: translateY(-50%);
+
+              @include common.md {
+                right: 28rem;
+              }
+
+              @include common.sp {
+                right: 16.5rem;
+              }
+            }
           }
         }
       }
@@ -1026,12 +1047,6 @@ main {
         &--under {
           position: relative;
         }
-
-        .job__content--form {
-          .job__content--btn {
-            padding-bottom: 11rem;
-          }
-        }
       }
 
       &--form {
@@ -1058,7 +1073,7 @@ main {
         background-position: left top;
         background-repeat: repeat-x;
         position: relative;
-        padding-top: 4rem;
+        padding-top: 3.5rem;
 
         @include common.md {
           padding-bottom: 6rem;
@@ -1136,7 +1151,7 @@ main {
             font-weight: mixin.$regular;
             line-height: 1.71;
             letter-spacing: 0.06em;
-            padding: 1.5rem 2rem 2.1rem 2rem;
+            padding: 2rem;
 
             @include common.lg {
               width: 54rem;
@@ -1183,6 +1198,7 @@ main {
         font-weight: mixin.$medium;
         line-height: 1.33;
         white-space: nowrap;
+        padding-bottom: 1rem;
         @include common.md {
           top: auto;
           transform: translateY(0);
@@ -1236,6 +1252,7 @@ main {
 
           &:hover {
             background-color: mixin.$off-white;
+            border: 0.1rem solid #9f1a1a;
 
             & a {
               color: #9f1a1a;
@@ -1314,7 +1331,7 @@ main {
         font-weight: mixin.$medium;
         line-height: 1.67;
         letter-spacing: 0.06em;
-        margin-top: 2rem;
+        margin-top: 1.5rem;
         margin-bottom: 3.1rem;
 
         @include common.md {
@@ -1488,6 +1505,7 @@ main {
 
         &--checkbox {
           margin-left: 1.5rem;
+          padding-right: 2rem;
         }
 
         &--title {
@@ -1674,10 +1692,10 @@ main {
     &__content {
       // ヘッドライン
       &--headline {
-        margin-bottom: 6.3rem;
+        // margin-bottom: 5.8rem;
 
         @include common.md {
-          margin-bottom: 3rem;
+          margin-bottom: 2.5rem;
         }
       }
 
@@ -1708,6 +1726,10 @@ main {
           background-size: 0.6rem 0.2rem;
           background-position: left bottom;
           background-repeat: repeat-x;
+
+          @include common.md {
+            padding-bottom: 2.3rem;
+          }
         }
       }
 
@@ -1725,6 +1747,7 @@ main {
           @include common.md {
             font-size: 1.8rem;
             line-height: 1.56;
+            margin-top: 1rem;
           }
         }
 
@@ -2446,6 +2469,13 @@ main {
         left: -50vw;
         background: #fff;
         z-index: 200;
+      }
+    }
+    .section-title {
+      .common-title {
+        @include common.md {
+          margin-bottom: 2.5rem;
+        }
       }
     }
   }
